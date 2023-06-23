@@ -40,9 +40,9 @@ def change_day_current(file_body):
 
 # "player_data":{"day":-20.0
 def change_day_in_player_data(file_body):
-    day_occur = re.findall("\"player_data\":\{\"day\":-?[0-9]{1,9}\.[0-9]", file_body)[0]
-    parts_of_file = re.split("\"player_data\":\{\"day\":-?[0-9]{1,9}\.[0-9]", file_body)
-    new_file_body = parts_of_file[0] + "\"player_data\":{\"day\":"+ str(FIRST_DAY) + ".0" + parts_of_file[1]
+    day_occur = re.findall("\"day\":-?[0-9]{1,9}\.[0-9]", file_body)[0]
+    parts_of_file = re.split("\"day\":-?[0-9]{1,9}\.[0-9]", file_body)
+    new_file_body = parts_of_file[0] + "\"day\":"+ str(FIRST_DAY) + ".0" + parts_of_file[1]
     # print(day_occur)
     return new_file_body
 
