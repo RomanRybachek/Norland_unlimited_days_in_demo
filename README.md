@@ -1,5 +1,5 @@
 # Norland_unlimited_days_in_demo
-This script allows you to bypass 15-days restriction in Norland game.
+This script allows you to bypass 15-days restriction in Norland demo game.
 # How to use:
 1) Install python 3, during the installation check the "Add to PATH" box
 2) Looking for the path to the saves, it's about this:
