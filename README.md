@@ -3,7 +3,7 @@ This script allows you to bypass 15-days restriction in Norland game.
 # How to use:
 1) Install python 3, during the installation check the "Add to PATH" box
 2) Looking for the path to the saves, it's about this:
-C:\Users\%USER%\AppData\Local\Strategy\saves
+C:\Users\%USER%\\AppData\Local\Strategy\saves
 4) Run from the command line "python unlim_days.py name_your_save.save"
 5) A new save will appear - unlim_days.save, load from it.
 # How it works:
