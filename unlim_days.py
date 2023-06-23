@@ -23,21 +23,21 @@ file_body = file_fd.read()
 DAY_CURRENT = get_current_day(file_body)
 
 def change_borns():
-    all_borns_values = re.findall("\"born\":-?[0-9]{1,9}\.[0-9],", file_body)
-    parts_of_file = re.split("\"born\":-?[0-9]{1,9}\.[0-9],", file_body)
+    all_borns_values = re.findall("\"born\":-?[0-9]{1,9}\.[0-9]", file_body)
+    parts_of_file = re.split("\"born\":-?[0-9]{1,9}\.[0-9]", file_body)
     new_file_body = ""
 
     parts_iter = 0
     for i in all_borns_values:
         born_val = int(re.findall("-?[0-9]{1,9}\.", i)[0][:-1])
         new_born_val = str(FIRST_DAY + born_val)
-        new_substr = "\"born\":" + new_born_val + ".0,"
+        new_substr = "\"born\":" + new_born_val + ".0"
 
         new_file_body += parts_of_file[parts_iter] + new_substr
         parts_iter += 1
     new_file_body += parts_of_file[parts_iter]
     return new_file_body
-# "day_current":-20.0
+
 def change_day_current(file_body):
     day_current_occur = re.findall("\"day_current\":-?[0-9]{1,9}\.[0-9]", file_body)[0]
     parts_of_file = re.split("\"day_current\":-?[0-9]{1,9}\.[0-9]", file_body)
@@ -45,11 +45,19 @@ def change_day_current(file_body):
     new_file_body = parts_of_file[0] + "\"day_current\":" + str(FIRST_DAY + DAY_CURRENT) + ".0" + parts_of_file[1]
     return new_file_body
 
-# "player_data":{"day":-20.0
 def change_day_in_player_data(file_body):
-    day_occur = re.findall("\"day\":-?[0-9]{1,9}\.[0-9]", file_body)[0]
+    all_day_occur = re.findall("\"day\":-?[0-9]{1,9}\.[0-9]", file_body)
     parts_of_file = re.split("\"day\":-?[0-9]{1,9}\.[0-9]", file_body)
-    new_file_body = parts_of_file[0] + "\"day\":"+ str(FIRST_DAY + DAY_CURRENT) + ".0" + parts_of_file[1]
+    new_file_body = ""
+    
+    parts_iter = 0
+    for i in all_day_occur:
+        new_day_val = str(FIRST_DAY + DAY_CURRENT)
+        new_substr = "\"day\":" + new_day_val + ".0"
+
+        new_file_body += parts_of_file[parts_iter] + new_substr
+        parts_iter += 1
+    new_file_body += parts_of_file[parts_iter]
     return new_file_body
 
 new_file_body = change_borns()
