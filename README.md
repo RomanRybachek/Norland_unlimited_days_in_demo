@@ -5,7 +5,7 @@ This script allows you to bypass 15-days restriction in Norland demo game.
 2) Looking for the path to the saves, it's about this:
 C:\Users\\%USER%\\AppData\Local\Strategy\saves
 4) Open command line and change directory in your command line to saves directory. Example: cd C:\Users\\%USER%\\AppData\Local\Strategy\saves
-5) Run from the command line "python unlim_days.py name_your_save.save"
+5) Run from the command line: python unlim_days.py name_your_save.save
 6) A new save will appear - unlim_days.save, load from it.
 # How it works:
 This script finds and changes the day_current, player_data : day, and all born fields to negative values.
