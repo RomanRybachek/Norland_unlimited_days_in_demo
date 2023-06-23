@@ -2,7 +2,7 @@ import re
 import sys
 import codecs
 
-FIRST_DAY = -1000
+FIRST_DAY = -10000
 
 # get current day in old save file
 def get_current_day(file_body):
@@ -13,6 +13,7 @@ def get_current_day(file_body):
 if len(sys.argv) == 1:
     print("Give me a save file")
     print("Usage: python unlim_days.py save_file_name.save")
+    print("WARNING: DO NOT RUN THE SCRIPT TWICE ON THE SAME SAVE!")
     exit(1)
 
 file_name = sys.argv[1]
@@ -58,6 +59,7 @@ new_file_body = change_day_in_player_data(new_file_body)
 new_save_file_fd = codecs.open("unlim_days.save", "w", encoding="utf_8")
 new_save_file_fd.write(new_file_body)
 print("Your new save is unlim_days.save. Rename it if you want.")
+print("WARNING: DO NOT RUN THE SCRIPT TWICE ON THE SAME SAVE!")
 new_save_file_fd.close()
 
 file_fd.close()
