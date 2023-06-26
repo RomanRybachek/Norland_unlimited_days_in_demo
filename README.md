@@ -1,7 +1,7 @@
 # Norland_unlimited_days_in_demo
 This script allows you to bypass 15-days restriction in Norland demo game.
 
-Everything is working fine. It doesn't break the age of the characters.
+It doesn't break the age of the characters. But there is a bug that makes all the values in the economic report zeros.
 
 It works with saves that are made in Russian language version too.
 # How to use:
